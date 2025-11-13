@@ -4,8 +4,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
@@ -42,6 +43,11 @@ const Login = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [signUpErrors, setSignUpErrors] = useState<Record<string, string>>({});
+
+  // Password Reset State
+  const [resetEmail, setResetEmail] = useState("");
+  const [resetting, setResetting] = useState(false);
+  const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
   useEffect(() => {
     checkAuth();
@@ -226,6 +232,44 @@ const Login = () => {
     }
   };
 
+  const handlePasswordReset = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!resetEmail) {
+      toast({
+        title: "Error",
+        description: "Please enter your email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setResetting(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+        redirectTo: `${window.location.origin}/`,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Success!",
+        description: "Password reset email sent. Please check your inbox.",
+      });
+      
+      setResetDialogOpen(false);
+      setResetEmail("");
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send reset email",
+        variant: "destructive",
+      });
+    } finally {
+      setResetting(false);
+    }
+  };
+
   if (checkingAuth) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-background">
@@ -298,6 +342,45 @@ const Login = () => {
                   "Sign In"
                 )}
               </Button>
+              
+              <Dialog open={resetDialogOpen} onOpenChange={setResetDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="link" className="w-full text-sm" type="button">
+                    Forgot your password?
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Reset Password</DialogTitle>
+                    <DialogDescription>
+                      Enter your email address and we'll send you a link to reset your password.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handlePasswordReset} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="reset-email">Email</Label>
+                      <Input
+                        id="reset-email"
+                        type="email"
+                        placeholder="your@email.com"
+                        value={resetEmail}
+                        onChange={(e) => setResetEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <Button type="submit" className="w-full" disabled={resetting}>
+                      {resetting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        "Send Reset Link"
+                      )}
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
             </form>
           </TabsContent>
 
