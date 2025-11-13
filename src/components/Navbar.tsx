@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
             <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              Odoo
+              AppMaster
             </div>
             <div className="hidden md:flex gap-6">
               <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">

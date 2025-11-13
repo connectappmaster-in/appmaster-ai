@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-1">
             <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent mb-4">
-              Odoo
+              AppMaster
             </div>
             <p className="text-muted-foreground text-sm">
               The all-in-one business management platform trusted by millions worldwide.
@@ -37,7 +37,7 @@ const Footer = () => {
         
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Odoo Clone. All rights reserved.
+            © 2024 AppMaster. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
