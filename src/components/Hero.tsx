@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 const Hero = () => {
-  return <section className="relative overflow-hidden bg-gradient-to-b from-background to-accent/10 pt-24 pb-16">
+  return <section className="relative overflow-hidden bg-gradient-to-b from-background to-accent/10 pt-24 pb-8">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           
