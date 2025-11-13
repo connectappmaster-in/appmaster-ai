@@ -5,19 +5,15 @@ import Benefits from "@/components/Benefits";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <Stats />
+      
       <Features />
       <Benefits />
       <CTA />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
