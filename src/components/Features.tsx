@@ -35,17 +35,8 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            All-in-One Business Suite
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to run and grow your business, seamlessly integrated
-          </p>
-        </div>
-        
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
