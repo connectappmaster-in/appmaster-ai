@@ -13,7 +13,7 @@ const Index = () => {
       <Features />
       <Benefits />
       
-      <Footer />
+      
     </div>;
 };
 export default Index;
