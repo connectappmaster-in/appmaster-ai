@@ -18,7 +18,6 @@ import CRM from "./pages/crm";
 import Marketing from "./pages/marketing";
 import PersonalExpense from "./pages/personal-expense";
 import Contact from "./pages/contact";
-import Admin from "./pages/admin";
 
 const queryClient = new QueryClient();
 
@@ -43,7 +42,6 @@ const App = () => (
           <Route path="/marketing" element={<Marketing />} />
           <Route path="/personal-expense" element={<PersonalExpense />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
