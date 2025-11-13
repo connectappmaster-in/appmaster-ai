@@ -23,6 +23,9 @@ const Navbar = () => {
               <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Resources
               </a>
+              <a href="/admin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Admin
+              </a>
             </div>
           </div>
           
