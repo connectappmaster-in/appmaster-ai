@@ -100,7 +100,7 @@ const Features = () => {
                 <div className="w-12 bg-primary flex flex-col items-center justify-center py-4 gap-2">
                   
                   <div className="flex flex-col items-center justify-center flex-1">
-                    <span className="text-primary-foreground font-semibold text-xs whitespace-nowrap transform -rotate-90 origin-center">
+                    <span className="text-primary-foreground font-semibold whitespace-nowrap transform -rotate-90 origin-center text-lg">
                       {feature.title}
                     </span>
                   </div>
