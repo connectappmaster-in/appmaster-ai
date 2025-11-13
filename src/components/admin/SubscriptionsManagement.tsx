@@ -10,6 +10,7 @@ export const SubscriptionsManagement = () => {
     queryKey: ['admin-subscriptions'],
     queryFn: async () => {
       const { data, error } = await supabase
+        // @ts-ignore - Types will be regenerated after migration
         .from('subscriptions')
         .select(`
           *,

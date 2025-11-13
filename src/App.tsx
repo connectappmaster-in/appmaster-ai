@@ -19,6 +19,7 @@ import Marketing from "./pages/marketing";
 import PersonalExpense from "./pages/personal-expense";
 import Contact from "./pages/contact";
 import Admin from "./pages/admin";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/depreciation" element={<Depreciation />} />
           <Route path="/invoicing" element={<Invoicing />} />
           <Route path="/attendance" element={<Attendance />} />

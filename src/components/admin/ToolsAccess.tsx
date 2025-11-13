@@ -13,6 +13,7 @@ export const ToolsAccess = () => {
     queryKey: ['admin-tools'],
     queryFn: async () => {
       const { data, error } = await supabase
+        // @ts-ignore - Types will be regenerated after migration
         .from('tools')
         .select('*')
         .order('display_name');
