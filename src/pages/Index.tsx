@@ -12,7 +12,7 @@ const Index = () => {
       
       <Features />
       <Benefits />
-      <CTA />
+      
       <Footer />
     </div>;
 };
