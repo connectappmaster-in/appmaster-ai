@@ -5,11 +5,11 @@ const features = [{
   description: "Automate invoicing, expenses, and financial reporting"
 }, {
   icon: ShoppingCart,
-  title: "HR Management",
+  title: "HR",
   description: "Streamline recruitment, attendance, and employee management"
 }, {
   icon: BarChart3,
-  title: "IT Management",
+  title: "IT",
   description: ""
 }, {
   icon: Briefcase,
@@ -27,6 +27,10 @@ const features = [{
   icon: Package,
   title: "Marketing",
   description: "Marketing"
+}, {
+  icon: Package,
+  title: "Productivity",
+  description: "Productivity"
 }, {
   icon: Package,
   title: "Custom",
