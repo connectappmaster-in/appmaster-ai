@@ -67,26 +67,33 @@ const Features = () => {
           {features.map((feature, index) => {
           const Icon = feature.icon;
           return <div key={index} className="bg-card p-8 rounded-xl border border-border hover:shadow-lg hover:border-primary/50 transition-all">
-                <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                  <Icon className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                <div className="space-y-2">
-                  {feature.tools.map((tool, toolIndex) => {
-                    const ToolIcon = tool.icon;
-                    return (
-                      <Link 
-                        key={toolIndex} 
-                        to={tool.path}
-                        className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors group/tool"
-                      >
-                        <ToolIcon className="h-4 w-4 text-muted-foreground group-hover/tool:text-primary transition-colors" />
-                        <span className="text-sm text-muted-foreground group-hover/tool:text-foreground transition-colors">
-                          {tool.name}
-                        </span>
-                      </Link>
-                    );
-                  })}
+                <div className="flex items-center gap-6">
+                  {/* Left side - Icon and Title (50%) */}
+                  <div className="flex-1 flex flex-col items-center justify-center">
+                    <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-center">{feature.title}</h3>
+                  </div>
+                  
+                  {/* Right side - Tools (50%) */}
+                  <div className="flex-1 flex flex-col items-center justify-center space-y-2">
+                    {feature.tools.map((tool, toolIndex) => {
+                      const ToolIcon = tool.icon;
+                      return (
+                        <Link 
+                          key={toolIndex} 
+                          to={tool.path}
+                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors group/tool w-full justify-center"
+                        >
+                          <ToolIcon className="h-4 w-4 text-muted-foreground group-hover/tool:text-primary transition-colors" />
+                          <span className="text-sm text-muted-foreground group-hover/tool:text-foreground transition-colors">
+                            {tool.name}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>;
         })}
