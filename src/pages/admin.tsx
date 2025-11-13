@@ -36,13 +36,14 @@ const Admin = () => {
 
       // Check if user is admin
       const { data: roles, error } = await supabase
+        // @ts-ignore - Types will be regenerated after migration
         .from('user_roles')
         .select('role')
         .eq('user_id', session.user.id);
 
       if (error) throw error;
 
-      const hasAdminRole = roles?.some(r => r.role === 'admin' || r.role === 'super_admin');
+      const hasAdminRole = roles?.some((r: any) => r.role === 'admin' || r.role === 'super_admin');
       
       if (!hasAdminRole) {
         toast({

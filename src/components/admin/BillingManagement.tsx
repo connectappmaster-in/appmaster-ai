@@ -10,6 +10,7 @@ export const BillingManagement = () => {
     queryKey: ['admin-billing'],
     queryFn: async () => {
       const { data, error } = await supabase
+        // @ts-ignore - Types will be regenerated after migration
         .from('billing')
         .select(`
           *,
