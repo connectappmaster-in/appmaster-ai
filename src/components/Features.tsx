@@ -77,17 +77,17 @@ const Features = () => {
                   </div>
                   
                   {/* Right side - Tools (50%) */}
-                  <div className="flex-1 flex flex-col items-center justify-center space-y-2">
+                  <div className="flex-1 flex flex-col items-start justify-center space-y-2">
                     {feature.tools.map((tool, toolIndex) => {
                       const ToolIcon = tool.icon;
                       return (
                         <Link 
                           key={toolIndex} 
                           to={tool.path}
-                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors group/tool w-full justify-center"
+                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors group/tool w-full"
                         >
-                          <ToolIcon className="h-4 w-4 text-muted-foreground group-hover/tool:text-primary transition-colors" />
-                          <span className="text-sm text-muted-foreground group-hover/tool:text-foreground transition-colors">
+                          <ToolIcon className="h-4 w-4 text-foreground group-hover/tool:text-primary transition-colors" />
+                          <span className="text-sm text-foreground group-hover/tool:text-primary transition-colors font-medium">
                             {tool.name}
                           </span>
                         </Link>
