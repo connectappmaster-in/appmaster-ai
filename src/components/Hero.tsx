@@ -25,15 +25,6 @@ const Hero = () => {
               Watch Demo
             </Button>
           </div>
-          
-          
-        </div>
-        
-        <div className="mt-20 relative">
-          
-          <div className="rounded-xl overflow-hidden shadow-2xl border border-border">
-            
-          </div>
         </div>
       </div>
     </section>;
