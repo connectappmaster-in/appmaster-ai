@@ -112,7 +112,7 @@ const Features = () => {
                 const ToolIcon = tool.icon;
                 return <Link key={toolIndex} to={tool.path} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-muted transition-colors group/tool">
                         <ToolIcon className="h-4 w-4 text-foreground group-hover/tool:text-primary transition-colors flex-shrink-0" />
-                        <span className="text-sm text-foreground group-hover/tool:text-primary transition-colors font-medium">
+                        <span className="text-foreground group-hover/tool:text-primary transition-colors font-medium text-lg">
                           {tool.name}
                         </span>
                       </Link>;
