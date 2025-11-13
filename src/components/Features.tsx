@@ -1,28 +1,36 @@
 import { BarChart3, ShoppingCart, Users, Briefcase, Package, Calendar } from "lucide-react";
 const features = [{
   icon: Users,
-  title: "CRM",
-  description: "Manage leads, opportunities, and customer relationships in one place"
-}, {
-  icon: ShoppingCart,
-  title: "eCommerce",
-  description: "Build and scale your online store with integrated inventory"
-}, {
-  icon: BarChart3,
-  title: "Accounting",
+  title: "Finance",
   description: "Automate invoicing, expenses, and financial reporting"
 }, {
+  icon: ShoppingCart,
+  title: "HR Management",
+  description: "Streamline recruitment, attendance, and employee management"
+}, {
+  icon: BarChart3,
+  title: "IT Management",
+  description: ""
+}, {
   icon: Briefcase,
-  title: "Project Management",
-  description: "Plan, track, and collaborate on projects effectively"
+  title: "Shop",
+  description: "Income and Expence tracker"
 }, {
   icon: Package,
-  title: "Inventory",
+  title: "Manufacturing",
   description: "Real-time inventory tracking and warehouse management"
 }, {
   icon: Calendar,
-  title: "HR Management",
-  description: "Streamline recruitment, attendance, and employee management"
+  title: "Sales",
+  description: "Sales"
+}, {
+  icon: Package,
+  title: "Marketing",
+  description: "Marketing"
+}, {
+  icon: Package,
+  title: "Custom",
+  description: "Contact Us"  
 }];
 const Features = () => {
   return <section className="py-16 bg-muted/30">
