@@ -14,16 +14,7 @@ const Hero = () => {
             Streamline operations with our all-in-one business management suite.                
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
-              Start Free Trial
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="px-8 py-6 text-lg border-2 hover:bg-accent">
-              <Play className="mr-2 h-5 w-5" />
-              Watch Demo
-            </Button>
-          </div>
+          
         </div>
       </div>
     </section>;
