@@ -22,6 +22,7 @@ import Admin from "./pages/admin";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import InitializeAdmin from "./pages/InitializeAdmin";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/initialize-admin" element={<InitializeAdmin />} />
           <Route path="/depreciation" element={<Depreciation />} />
           <Route path="/invoicing" element={<Invoicing />} />
           <Route path="/attendance" element={<Attendance />} />
