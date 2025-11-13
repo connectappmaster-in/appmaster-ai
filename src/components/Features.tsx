@@ -95,7 +95,7 @@ const Features = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
           const Icon = feature.icon;
-          return <div key={index} className="bg-card rounded-xl border border-border hover:shadow-lg hover:border-primary/50 transition-all overflow-hidden flex">
+          return <div key={index} className="bg-card rounded-xl border border-border hover:shadow-lg hover:border-primary/50 transition-all overflow-hidden flex h-[280px]">
                 {/* Left side - Vertical colored stripe with category name */}
                 <div className="w-16 bg-primary flex flex-col items-center justify-center py-8 gap-3">
                   
