@@ -66,34 +66,34 @@ const Features = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
           const Icon = feature.icon;
-          return <div key={index} className="bg-card p-8 rounded-xl border border-border hover:shadow-lg hover:border-primary/50 transition-all">
-                <div className="flex items-center gap-6">
-                  {/* Left side - Icon and Title (50%) */}
-                  <div className="flex-1 flex flex-col items-center justify-center">
-                    <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <Icon className="h-7 w-7 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-center">{feature.title}</h3>
+          return <div key={index} className="bg-card rounded-xl border border-border hover:shadow-lg hover:border-primary/50 transition-all overflow-hidden flex">
+                {/* Left side - Vertical colored stripe with category name */}
+                <div className="w-16 bg-primary flex flex-col items-center justify-center py-8 gap-3">
+                  <Icon className="h-6 w-6 text-primary-foreground" />
+                  <div className="flex flex-col items-center justify-center flex-1">
+                    <span className="text-primary-foreground font-semibold text-sm whitespace-nowrap transform -rotate-90 origin-center">
+                      {feature.title}
+                    </span>
                   </div>
-                  
-                  {/* Right side - Tools (50%) */}
-                  <div className="flex-1 flex flex-col items-start justify-center space-y-2">
-                    {feature.tools.map((tool, toolIndex) => {
-                      const ToolIcon = tool.icon;
-                      return (
-                        <Link 
-                          key={toolIndex} 
-                          to={tool.path}
-                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors group/tool w-full"
-                        >
-                          <ToolIcon className="h-4 w-4 text-foreground group-hover/tool:text-primary transition-colors" />
-                          <span className="text-sm text-foreground group-hover/tool:text-primary transition-colors font-medium">
-                            {tool.name}
-                          </span>
-                        </Link>
-                      );
-                    })}
-                  </div>
+                </div>
+                
+                {/* Right side - Tools */}
+                <div className="flex-1 p-8 flex flex-col justify-center space-y-2">
+                  {feature.tools.map((tool, toolIndex) => {
+                    const ToolIcon = tool.icon;
+                    return (
+                      <Link 
+                        key={toolIndex} 
+                        to={tool.path}
+                        className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors group/tool"
+                      >
+                        <ToolIcon className="h-4 w-4 text-foreground group-hover/tool:text-primary transition-colors" />
+                        <span className="text-sm text-foreground group-hover/tool:text-primary transition-colors font-medium">
+                          {tool.name}
+                        </span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>;
         })}
