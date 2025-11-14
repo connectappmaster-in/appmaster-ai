@@ -1,11 +1,74 @@
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Menu, LogOut, User, Settings, ShieldAlert } from "lucide-react";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { Menu, LogOut, User, Settings, ShieldAlert, TrendingDown, FileText, Clock, UserPlus, Ticket, CreditCard, Laptop, Store, Box, Target, CheckCircle, PhoneCall } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
+import { cn } from "@/lib/utils";
+
+const productCategories = [
+  {
+    title: "Finance",
+    items: [
+      { name: "Depreciation", path: "/depreciation", icon: TrendingDown },
+      { name: "Invoicing", path: "/invoicing", icon: FileText }
+    ]
+  },
+  {
+    title: "HR",
+    items: [
+      { name: "Attendance", path: "/attendance", icon: Clock },
+      { name: "Recruitment", path: "/recruitment", icon: UserPlus }
+    ]
+  },
+  {
+    title: "IT",
+    items: [
+      { name: "Tickets Handling", path: "/tickets", icon: Ticket },
+      { name: "Subscriptions", path: "/subscriptions", icon: CreditCard },
+      { name: "Assets", path: "/assets", icon: Laptop }
+    ]
+  },
+  {
+    title: "Shop",
+    items: [
+      { name: "Income & Expenditure Tracker", path: "/shop-income-expense", icon: Store }
+    ]
+  },
+  {
+    title: "Manufacturing",
+    items: [
+      { name: "Inventory", path: "/inventory", icon: Box }
+    ]
+  },
+  {
+    title: "Sales",
+    items: [
+      { name: "CRM", path: "/crm", icon: Target }
+    ]
+  },
+  {
+    title: "Marketing",
+    items: [
+      { name: "Marketing", path: "/marketing", icon: CheckCircle }
+    ]
+  },
+  {
+    title: "Productivity",
+    items: [
+      { name: "Personal Expense Tracker", path: "/personal-expense", icon: CheckCircle }
+    ]
+  },
+  {
+    title: "Custom",
+    items: [
+      { name: "Contact Us", path: "/contact", icon: PhoneCall }
+    ]
+  }
+];
 const Navbar = () => {
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [userRole, setUserRole] = useState<string>('user');
@@ -89,16 +152,54 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
               AppMaster
-            </div>
+            </Link>
             <div className="hidden md:flex gap-6">
-              <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                Products
-              </a>
-              
-              
-              
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-sm font-medium bg-transparent">
+                      Products
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[800px] p-6 bg-popover">
+                        <div className="grid grid-cols-3 gap-6">
+                          {productCategories.map((category, idx) => (
+                            <div key={idx} className="space-y-3 animate-fade-in" style={{ animationDelay: `${idx * 0.05}s`, animationFillMode: 'both' }}>
+                              <h4 className="font-semibold text-sm text-primary mb-2">
+                                {category.title}
+                              </h4>
+                              <ul className="space-y-2">
+                                {category.items.map((item, itemIdx) => {
+                                  const Icon = item.icon;
+                                  return (
+                                    <li key={itemIdx}>
+                                      <NavigationMenuLink asChild>
+                                        <Link
+                                          to={item.path}
+                                          className={cn(
+                                            "flex items-center gap-2 p-2 rounded-md text-sm transition-colors hover:bg-accent hover:text-accent-foreground group"
+                                          )}
+                                        >
+                                          <Icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                          <span className="text-foreground group-hover:text-primary">
+                                            {item.name}
+                                          </span>
+                                        </Link>
+                                      </NavigationMenuLink>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
           </div>
           
