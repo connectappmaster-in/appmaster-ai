@@ -151,12 +151,12 @@ const Navbar = () => {
   };
   return <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center">
-              <img src={logo} alt="AppMaster" className="h-16 w-auto" />
+        <div className="flex items-center justify-between h-16 gap-4">
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center flex-shrink-0">
+              <img src={logo} alt="AppMaster" className="h-14 w-auto" />
             </Link>
-            <div className="hidden md:flex gap-6">
+            <div className="hidden md:flex">
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
