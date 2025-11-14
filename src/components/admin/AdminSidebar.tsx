@@ -15,21 +15,24 @@ const navigation = [
 
 export const AdminSidebar = () => {
   return (
-    <aside className="w-64 bg-card border-r border-border h-screen sticky top-0">
-      <div className="p-4 border-b border-border">
-        <h2 className="text-lg font-bold text-foreground">Admin Panel</h2>
+    <aside className="w-64 bg-gradient-to-b from-card to-accent/5 border-r border-border h-screen sticky top-0 shadow-sm">
+      <div className="p-6 border-b border-border bg-gradient-to-r from-primary/5 to-primary/10">
+        <h2 className="text-xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+          Admin Panel
+        </h2>
+        <p className="text-xs text-muted-foreground mt-1">Management Console</p>
       </div>
-      <nav className="p-2">
+      <nav className="p-3">
         {navigation.map((item) => (
           <NavLink
             key={item.name}
             to={item.href}
             className={cn(
-              "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+              "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200 mb-1 group"
             )}
-            activeClassName="bg-accent text-accent-foreground"
+            activeClassName="bg-gradient-to-r from-primary/10 to-primary/5 text-primary shadow-sm border-l-2 border-primary"
           >
-            <item.icon className="h-5 w-5" />
+            <item.icon className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
             {item.name}
           </NavLink>
         ))}

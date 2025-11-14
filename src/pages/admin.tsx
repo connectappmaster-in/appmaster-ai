@@ -77,14 +77,23 @@ const Admin = () => {
   }
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <AdminSidebar />
       
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold text-foreground">Admin Dashboard</h1>
-            <Button variant="outline" onClick={() => navigate("/")}>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+            <div>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Admin Dashboard
+              </h1>
+              <p className="text-muted-foreground mt-2">Manage your application and monitor key metrics</p>
+            </div>
+            <Button 
+              variant="outline" 
+              onClick={() => navigate("/")}
+              className="hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all"
+            >
               Back to App
             </Button>
           </div>
