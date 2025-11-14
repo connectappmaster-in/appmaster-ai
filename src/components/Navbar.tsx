@@ -149,8 +149,8 @@ const Navbar = () => {
   const getInitials = (email: string) => {
     return email.substring(0, 2).toUpperCase();
   };
-  return <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
-      <div className="w-full px-8">
+  return <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50 overflow-hidden">
+      <div className="w-full px-8 overflow-hidden">
         <div className="flex items-center justify-between h-16 gap-4">
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center flex-shrink-0">
@@ -205,9 +205,9 @@ const Navbar = () => {
           </div>
           
           <div className="flex items-center gap-4">
-            {user ? <DropdownMenu>
+            {user ? <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                  <Button variant="ghost" className="relative h-10 w-10 rounded-full z-50">
                     <Avatar className="h-10 w-10">
                       <AvatarFallback className="bg-primary text-primary-foreground">
                         {getInitials(user.email || "U")}
@@ -215,7 +215,7 @@ const Navbar = () => {
                     </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuContent className="w-56 z-[60]" align="end" forceMount sideOffset={8}>
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
                       <p className="text-sm font-medium leading-none">Account</p>
