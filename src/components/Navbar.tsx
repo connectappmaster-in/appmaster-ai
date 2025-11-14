@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const productCategories = [
   {
@@ -152,8 +153,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              AppMaster
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="AppMaster" className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex gap-6">
               <NavigationMenu>
