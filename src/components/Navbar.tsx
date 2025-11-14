@@ -154,7 +154,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="AppMaster" className="h-10 w-auto" />
+              <img src={logo} alt="AppMaster" className="h-16 w-auto" />
             </Link>
             <div className="hidden md:flex gap-6">
               <NavigationMenu>
