@@ -1013,6 +1013,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_subscription_limit: {
+        Args: { limit_type: string; org_id: string }
+        Returns: boolean
+      }
       get_user_org: { Args: never; Returns: string }
       get_user_tenant: { Args: { _user_id: string }; Returns: number }
       has_feature: {
